@@ -1,14 +1,14 @@
 # OrderApp
 
-##mvn clean install
+## mvn clean install
  ![OrderApp](mvncleaninstall.PNG)
 
-##mvn compile
+## mvn compile
  ![OrderApp](mvncompile.PNG)
 
-##mvn test
+## mvn test
  ![OrderApp](mvntest.PNG)
 
-##Example Screenshot of Output
+## Example Screenshot of Output
  ![OrderApp](output.PNG)
  
