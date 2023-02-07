@@ -37,6 +37,7 @@ public class InvoiceRepository implements HashMapRepository<Long, Invoice>{
         return hashMap.values();
     }
 
+    //return List of Customer Id's if they have any invoice lower then given price
     public List<Long> findCustomerIdsWhoHasInvoiceLowerThenPrice(BigDecimal price){
         List<Long> customerIdList = new ArrayList<>();
         hashMap.keySet().stream().forEach(key -> {
