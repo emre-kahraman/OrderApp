@@ -60,12 +60,14 @@ public class InvoiceService {
         return invoiceSet;
     }
 
+    //return set of customer names if they have any invoice lower then given price
     public Set<String> getCustomerNamesWhoHasInvoiceLowerThenPrice(BigDecimal price){
         return invoiceRepository.findCustomerIdsWhoHasInvoiceLowerThenPrice(price)
                 .stream()
                 .map(customerService::getCustomerNameByCustomerId).collect(Collectors.toSet());
     }
 
+    //return map of companies and their invoices filtered by month
     public Map<Company, Set<Invoice>> getInvoicesGroupedByCompanyAndFilteredByMonth(int month){
         Map<Company, Set<Invoice>> invoices = new HashMap<>();
         invoiceRepository.findAll().stream().forEach(invoiceSet -> invoiceSet.stream().forEach(invoice -> {
@@ -77,6 +79,7 @@ public class InvoiceService {
         return invoices;
     }
 
+    //return List of company categories if they have average invoice price lower then given price
     public List<String> getCompanyCategoriesWhichHasAverageInvoicePriceLowerThenGivenPrice(BigDecimal price, Map<Company, Set<Invoice>> invoices){
         List<String> companyCategories = new ArrayList<>();
         invoices.entrySet().stream().forEach(invoiceSet -> {
